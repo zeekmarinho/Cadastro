@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app>
+
+    <head>
+        <script src = "js/angular.min.js" ></script>
+        <script src = "js/func.js" ></script>
+    </head>
+    
+    <body>
+        <img src = "./img/koy-logo.png"/>
+        <h1>SISTEMA DE CADASATRO</h1>
+        <div ng-controller = "ContatoController">
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            Nome
+                        </td>
+                        <td>
+                            <input type = "text" name = "nome" ng-model = "novocontato.nome"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Telefone
+                        </td>
+                        <td>
+
+                            <input type = "text" name = "telefone" ng-model = "novocontato.telefone"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Endereço
+                        </td>
+                        <td>
+                            <input type = "text" name = "endereco" ng-model = "novocontato.endereco"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            E-mail
+                        </td>
+                        <td>
+                            <input type = "text" name = "mail" ng-model = "novocontato.mail"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Data de Nascimento
+                        </td>
+                        <td>
+                            <input type = "text" name = "data" ng-model = "novocontato.data"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type = "hidden" ng-model = "novocontato.id"/>
+                        </td>
+                        <td>
+                            <input type = "button" value = "Salvar" ng-click = "salvaContato()"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <table border = "1.5">
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Telefone
+                    </th>
+                    <th>
+                        Endereço
+                    </th>
+                    <th>
+                        E-mail
+                    </th>
+                    <th>
+                        Data de Nascimento
+                    </th>
+                </tr>
+                <tr ng-repeat = "contato in contatos">
+                    <td>{{contato.nome}}</td>
+                    <td>{{contato.telefone}}</td>
+                    <td>{{contato.endereco}}</td>
+                    <td>{{contato.mail}}</td>
+                    <td>{{contato.data}}</td>
+                    <td>
+                        <a href="#" ng-click = "edita(contato.id)">editar</a>
+                        <a href="#" ng-click = "deleta(contato.id)">deletar</a>
+                    </td>
+                </tr>    
+            </table>
+        </div>
+        
+    </body>
+
+
+</html>
